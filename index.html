@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#dddad4" />
+  <title>Supermarket Birding — A Change of Perspective</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="outside" class="scene-layer">
+      <canvas id="three" aria-label="An interactive glass 3D sphere suspended in a supermarket environment"></canvas>
+      <div id="optical-vignette" aria-hidden="true"></div>
+      <div id="entrance-glow" aria-hidden="true"></div>
+    </div>
+
+    <header class="topbar">
+      <button id="about-btn" class="top-action" type="button">ABOUT <span aria-hidden="true">↗</span></button>
+    </header>
+
+    <p id="environment-status" class="sr-only" role="status">正在加载全景环境…</p>
+    <button id="enter-shortcut" disabled class="enter-shortcut" type="button" aria-label="Scroll to approach, or click to enter">
+      <span class="approach-mouse" aria-hidden="true"><span class="approach-wheel"></span></span>
+      <span class="approach-label">SCROLL TO APPROACH</span>
+      <svg class="approach-arrow" width="22" height="28" viewBox="0 0 22 28" fill="none" aria-hidden="true"><path d="M11 4v17m-4-4 4 4 4-4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <section id="observation" inert class="observation" aria-hidden="true">
+      <canvas id="observation-peripheral" class="observation-photo observation-peripheral" aria-hidden="true"></canvas>
+      <canvas id="observation-photo" class="observation-photo" aria-label="拖动环视便利店全景" role="img"></canvas>
+      <div class="observation-wash"></div>
+      <div class="binocular-vignette" aria-hidden="true"></div>
+      <div id="reticle" class="reticle" aria-hidden="true"><span></span><span></span><span></span><span></span><i></i></div>
+      <button id="exit-observe" class="exit-observe" type="button">← BACK TO THE SPHERE</button>
+      <div class="observe-controls">
+        <button class="spot-btn" id="spot-button" type="button">CAPTURE BIRD</button>
+        <button class="archive-button" id="archive-button" type="button">ARCHIVE <span id="archive-count">00</span></button>
+      </div>
+    </section>
+
+    <aside id="archive-panel" class="archive-panel" aria-hidden="true">
+      <div class="archive-head"><button id="archive-close" type="button" aria-label="Close archive">×</button></div>
+      <div id="archive-entries" class="archive-entries"></div>
+    </aside>
+
+    <aside id="about-panel" class="about-panel" aria-hidden="true"><button id="about-close" type="button" aria-label="Close">×</button><span class="about-eyebrow">A ONE-YEAR EXERCISE IN NOTICING</span><h2>THE BIG YEAR,<br/>INSIDE A SUPERMARKET.</h2><p>Observe birds, traces of birds, and bird-like moments hidden in the visual language of shopping. A sighting begins when you notice something—not when you scan its barcode.</p><p>This prototype demonstrates the reflective 3D entrance and a first observation interaction. No species are automatically identified.</p></aside>
+
+    <div id="error-message" class="error-message" role="alert" hidden>3D rendering could not start. Make sure you opened the project through <code>npm run dev</code> in a modern browser.</div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
