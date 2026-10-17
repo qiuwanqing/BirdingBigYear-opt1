@@ -1,13 +1,13 @@
 // Only use verified full spherical panoramas. A 2:1 image alone is not proof.
 // 当前试用：用户提供的 8-bit LDR 全景，接缝和极点待视觉确认。
 const retroStore = {
-  url: '/assets/retro-convenience-360.png',
+  url: `${import.meta.env.BASE_URL}assets/retro-convenience-360.png`,
   format: 'png',
   label: '复古便利店 · LDR 全景测试',
 };
 // 换回原环境：把下方 ...retroStore 改成 ...shopRoom。
 const shopRoom = {
-  url: '/assets/shop-room-4k.exr',
+  url: `${import.meta.env.BASE_URL}assets/shop-room-4k.exr`,
   format: 'exr',
   label: 'Shop Room · 临时零售店环境（非大型超市）',
 };
